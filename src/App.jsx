@@ -35,7 +35,6 @@ class App extends React.Component {
     return (
     <div className="App">
       <h2>{this.getTypedWord()}</h2>
-      <span>{this.state.isCapsLockOn && "HI" && <img src={"/bulb.png"} alt="bulb"/>}</span>
       <div className="demoPage">
           <Keyboard 
             keysList={keysLists} 
