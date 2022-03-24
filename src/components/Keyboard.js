@@ -52,7 +52,7 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 			case 'enter' :
 				handleAddCharacter('\n')
 				break;
-			case 'clearAll' :
+			case 'clear all' :
 				clearAll(true)
 				break;
 		}
