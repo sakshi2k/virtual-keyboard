@@ -23,7 +23,7 @@ class App extends React.Component {
   }
   
   clearAll(flag) {
-    flag ? this.setState({typedWord: this.state.typedWord.slice(0,-1)}) : this.setState({typedWord: ""});
+    !flag ? this.setState({typedWord: this.state.typedWord.slice(0,-1)}) : this.setState({typedWord: ""});
   }
 
   getTypedWord(){
