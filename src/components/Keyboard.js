@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { KeyItem } from "./KeyItem";
 import { keyTypes } from "./utilities/KeyBoardInterface.ts";
+import { Container, Row, Col } from "react-bootstrap";
 
-const Keyboard = ({ keysList, typeCharacter, clearAll}) => {
+const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 	const [capsOn, toggleCapsLock] = useState(false);
 	const [shiftOn, toggleShift] = useState(false);
 	const [renderedKeysList, setRenderedKeysList] = useState(keysList)
@@ -30,7 +31,7 @@ const Keyboard = ({ keysList, typeCharacter, clearAll}) => {
 			let letterKeysList = getAlphabetKeys();
 			let nonLetterKeysList = getNonAlphabetKeys();
 			shuffleArray(letterKeysList);
-			setRenderedKeysList([...letterKeysList, ...nonLetterKeysList]);
+			setRenderedKeysList([ ...letterKeysList, ...nonLetterKeysList]);
 		}
 	}
 
@@ -70,18 +71,67 @@ const Keyboard = ({ keysList, typeCharacter, clearAll}) => {
 		return renderedKeysList.filter(eachKey => eachKey.type !== keyTypes[0]);
 	}
 
+	const getNumericKeys = () => {
+		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[1]);;
+	}
+
+	const getSpecialCharKeys = () => {
+		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[2]);
+	}
+
+	const getSpecialKeys = () => {
+		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[3]);
+	}
+
 	return (
-		<div className="keyboard-style">
-			{renderedKeysList.map((keyItem, index) => 
-				<KeyItem 
-					key={index} 
-					keyName={keyItem.name} 
-					keyType={keyItem.type} 
-					addCharacter={handleAddCharacter}
-					handleSpecialKeyClick={handleSpecialKeyClick}
-					shuffleLetters={shuffleKeys}
-				/>)}
-		</div>
+		<Container>
+			<Row>
+				<Col xs={6}>
+					{getAlphabetKeys().map((keyItem, index) => 
+						<KeyItem 
+							key={index} 
+							keyName={keyItem.name} 
+							keyType={keyItem.type} 
+							addCharacter={handleAddCharacter}
+							handleSpecialKeyClick={handleSpecialKeyClick}
+							shuffleLetters={shuffleKeys}
+						/>)}
+				</Col>
+				 <Col xs={3}>
+					{getNumericKeys().map((keyItem, index) => 
+						<KeyItem 
+							key={index} 
+							keyName={keyItem.name} 
+							keyType={keyItem.type} 
+							addCharacter={handleAddCharacter}
+							handleSpecialKeyClick={handleSpecialKeyClick}
+							shuffleLetters={shuffleKeys}
+						/>)}
+				</Col>
+				 <Col xs={3}>
+					{getSpecialCharKeys().map((keyItem, index) => 
+						<KeyItem 
+							key={index} 
+							keyName={keyItem.name} 
+							keyType={keyItem.type} 
+							addCharacter={handleAddCharacter}
+							handleSpecialKeyClick={handleSpecialKeyClick}
+							shuffleLetters={shuffleKeys}
+						/>)}
+				</Col>
+				 <Col xs={12}>
+					{getSpecialKeys().map((keyItem, index) => 
+						<KeyItem 
+							key={index} 
+							keyName={keyItem.name} 
+							keyType={keyItem.type} 
+							addCharacter={handleAddCharacter}
+							handleSpecialKeyClick={handleSpecialKeyClick}
+							shuffleLetters={shuffleKeys}
+						/>)}
+				</Col>
+			</Row>
+		</Container>
 	);
 }
 

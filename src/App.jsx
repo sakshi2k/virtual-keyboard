@@ -1,7 +1,10 @@
 import * as React from "react";
-import "./App.css";
 import Keyboard from "./components/Keyboard";
 import keysLists from "./components/utilities/keysUtilities";
+// import showBulb from "";
+
+import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   constructor( props ){
@@ -35,11 +38,13 @@ class App extends React.Component {
     return (
     <div className="App">
       <h2>{this.getTypedWord()}</h2>
+      <span>{this.state.isCapsLockOn && "HI" && <img src={"/bulb.png"} alt="bulb"/>}</span>
       <div className="demoPage">
           <Keyboard 
             keysList={keysLists} 
             typeCharacter={this.typeCharacter} 
-            clearAll={this.clearAll}/>
+            clearAll={this.clearAll}
+          />
       </div>
     </div>
     );
