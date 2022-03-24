@@ -19,7 +19,6 @@ Project's purpose : SDE assesment at Commerce IQ.
 
 ## Problem Statement of the Application
 
-```
 1. The virtual keyboard needs to facilitate numbers (1-5), special characters (any 5 character), and alphabets(A-O) along with space, delete, enter, shift and caps lock
 
 2. The layout of the virtual keyboard has to be fixed, you can choose the layout specifications like a number of rows, what each row should hold, etc.
@@ -36,7 +35,7 @@ Example → qwerty (before user clicked any key) → e (user pressed e) →  reu
 6. On user interaction, have the sentence fed into a text area just above the keyboard.
 
 7. Ensure keys like delete, shift, caps lock works as expected.
-```
+
 
 ## Technology Stack
 
