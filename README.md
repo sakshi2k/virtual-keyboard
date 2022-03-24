@@ -63,4 +63,4 @@ Durstenfeld shuffle, an optimized version of Fisher-Yates jhn
 - styling for keys can be made configurable with better logic implementation.
 - use of "KeysProperties" for maintain validation of the key's object data throughout the application. Refer : src/components/utilities/KeyBoardInterface.ts
 - additional helper functionalities like:   
-    > copy text to clipboard.
+    - copy text to clipboard.
