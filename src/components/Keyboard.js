@@ -24,7 +24,8 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 			else letterKeysList[idx].name =  letterKey.name.toLowerCase();
 		});
 		setRenderedKeysList([...letterKeysList, ...nonLetterKeysList]);
-	},[capsOn, shiftOn, getAlphabetKeys, getNonAlphabetKeys]);
+    // eslint-disable-next-line
+	},[capsOn, shiftOn]);
 
 	// Durstenfeld shuffle
 	function shuffleArray(array) {
