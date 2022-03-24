@@ -1,10 +1,7 @@
 import * as React from "react";
 import Keyboard from "./components/Keyboard";
 import keysLists from "./components/utilities/keysUtilities";
-// import showBulb from "";
-
 import "./App.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   constructor( props ){
