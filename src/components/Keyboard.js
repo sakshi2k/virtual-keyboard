@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { KeyItem } from "./KeyItem";
 import { keyTypes } from "./utilities/KeyBoardInterface.ts";
 import { Container, Row, Col } from "react-bootstrap";
@@ -16,7 +16,7 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 			else letterKeysList[idx].name =  letterKey.name.toLowerCase();
 		});
 		setRenderedKeysList([...letterKeysList, ...nonLetterKeysList]);
-	},[capsOn, shiftOn, foo]);
+	},[capsOn, shiftOn]);
 
 	// Durstenfeld shuffle
 	function shuffleArray(array) {
@@ -82,10 +82,6 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 	const getSpecialKeys = () => {
 		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[3]);
 	}
-
-	const foo = useCallback(() => {
-		console.log('foo');
-	  }, [getAlphabetKeys, getNonAlphabetKeys]);
 
 	return (
 		<Container>
