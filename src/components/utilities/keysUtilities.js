@@ -1,0 +1,37 @@
+import { keyTypes } from "./KeyBoardInterface.ts";
+
+const keysLists = [
+    { name: 'A', type: keyTypes[0] },
+    { name: 'B', type: keyTypes[0] },
+    { name: 'C', type: keyTypes[0] },
+    { name: 'D', type: keyTypes[0] },
+    { name: 'E', type: keyTypes[0] },
+    { name: 'F', type: keyTypes[0] },
+    { name: 'G', type: keyTypes[0] },
+    { name: 'H', type: keyTypes[0] },
+    { name: 'I', type: keyTypes[0] },
+    { name: 'J', type: keyTypes[0] },
+    { name: 'K', type: keyTypes[0] },
+    { name: 'L', type: keyTypes[0] },
+    { name: 'M', type: keyTypes[0] },
+    { name: 'N', type: keyTypes[0] },
+    { name: 'O', type: keyTypes[0] },
+    { name: '1', type: keyTypes[1] },
+    { name: '2', type: keyTypes[1] },
+    { name: '3', type: keyTypes[1] },
+    { name: '4', type: keyTypes[1] },
+    { name: '5', type: keyTypes[1] },
+    { name: '@', type: keyTypes[2] },
+    { name: '!', type: keyTypes[2] },
+    { name: '#', type: keyTypes[2] },
+    { name: '$', type: keyTypes[2] },
+    { name: '?', type: keyTypes[2] },
+    { name: 'caps', type: keyTypes[3] },
+    { name: 'shift', type: keyTypes[3] },
+    { name: 'delete', type: keyTypes[3] },
+    { name: 'enter', type: keyTypes[3] },
+    { name: 'clearAll', type: keyTypes[3] },
+    { name: 'space', type: keyTypes[3] },
+];
+
+export default keysLists;
