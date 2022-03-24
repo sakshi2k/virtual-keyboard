@@ -1,73 +1,68 @@
-# Getting Started with Create React App
+# Virtual Keyboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Link to Deployed Application:
+https://623cac762b3e9b1124e54204--bejewelled-sunflower-2de751.netlify.app/
 
-## Available Scripts
+## About the Project
+This is a minimalistic virtual keyboard application built using React.js with Bootstrap 4 (for styling).
+Project's purpose : SDE assesment at Commerce IQ.
 
-In the project directory, you can run:
+## Project setup
 
-### `npm start`
+```
+1. Clone the repo
+2. cd commerceiq-task-frontend
+3. npm install
+4. npm run serve
+5. Open the project on localhost:8080
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Problem Statement of the Application
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+1. The virtual keyboard needs to facilitate numbers (1-5), special characters (any 5 character), and alphabets(A-O) along with space, delete, enter, shift and caps lock
 
-### `npm test`
+2. The layout of the virtual keyboard has to be fixed, you can choose the layout specifications like a number of rows, what each row should hold, etc.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. The keys need to rearrange in a random order as the user clicks on any key (Keeping the layout fixed).
 
-### `npm run build`
+4. If the user clicks the normal keys like alphabets or letters, the keys should change its position randomly.
+Example → qwerty (before user clicked any key) → e (user pressed e) →  reuqy (keys after user pressed e key)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. If the user clicks not the function keys like Caps, Shift - keys should stay in the same position.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    Example → qwerty (before user clicked caps) → Caps → QWERTY (Keys after user pressed Caps key)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+6. On user interaction, have the sentence fed into a text area just above the keyboard.
 
-### `npm run eject`
+7. Ensure keys like delete, shift, caps lock works as expected.
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technology Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React.js v17.0.2
+- React-Bootstrap v2.2.1"(for styling)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Shuffling algorithm used :
+Durstenfeld shuffle, an optimized version of Fisher-Yates jhn
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### More insights on the code :
+- Modular code with reusable components.
+    > each key is a seperate component
+    > keyboard is itself a seperate component for better encapsulation of functionalities.
+    > 
+- Fixed layout for each key character type[alphabets, numbers, special characters, special keys(space, delete, enter, shift and caps lock)].
+- Each layout is configurable.
+- Additional "Clear All" button to reset complete text.
+- Approach for better user experience (UX) encorporated.
+- Functional components used majorly for all components except for main component (i.e App component) which is instead a Class component.
+- Arrow functions used commonly for functionalities.
+- React Hooks used vastly.
 
 
-Durstenfeld shuffle, an optimized version of Fisher-Yates
+#### Future Scope of improvements : 
+- system's keyboard's keys' click should be synced with the 
+- styling for keys can be made configurable with better logic implementation.
+- use of "KeysProperties" for maintain validation of the key's object data throughout the application. Refer : src/components/utilities/KeyBoardInterface.ts
+- additional helper functionalities like:   
+    > copy text to clipboard.
