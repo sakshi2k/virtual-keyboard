@@ -10,7 +10,7 @@ const KeyItem = ({keyName, keyType, index, addCharacter, handleSpecialKeyClick, 
 
     function handleLettersClick() {
         addLetter();
-        shuffleLetters();
+        shuffleLetters(keyType);
     }
 
     function handleNumbersClick() {

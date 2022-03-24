@@ -30,7 +30,8 @@ class App extends React.Component {
 
   getTypedWord(){
     if(this.state.typedWord.length){
-      return this.state.typedWord + `_`;
+      return this.state.typedWord+`_`;
+      // return this.state.typedWord +~{'\n'}+`_`;
     }
     else return this.state.staticText;
   }
@@ -40,7 +41,10 @@ class App extends React.Component {
     <div className="App">
       <h2>{this.getTypedWord()}</h2>
       <div className="demoPage">
-          <Keyboard keysList={keysLists} typeCharacter={this.typeCharacter} clearAll={this.clearAll}/>
+          <Keyboard 
+            keysList={keysLists} 
+            typeCharacter={this.typeCharacter} 
+            clearAll={this.clearAll}/>
       </div>
     </div>
     );

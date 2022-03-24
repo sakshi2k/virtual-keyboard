@@ -6,9 +6,3 @@ export interface KeysProperties {
 export enum keyTypes {
     "letter", "number", "specialChar", "specialKey"
 }
-
-// export function getKeyTypes() {
-//     return keyTypes;
-// }
-
-// export interface KeysProperties;
