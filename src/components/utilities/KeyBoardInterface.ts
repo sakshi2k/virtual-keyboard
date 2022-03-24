@@ -4,5 +4,5 @@ export interface KeysProperties {
 }
 
 export enum keyTypes {
-    "letter", "number", "specialChar", "specialKey"
+     "number", "specialChar","letter", "specialKey"
 }

@@ -23,13 +23,13 @@ const KeyItem = ({keyName, keyType, index, addCharacter, handleSpecialKeyClick, 
 
 	function handleAnyKeyClick() {
 		switch(keyType) {
-			case keyTypes[0] : 
+			case keyTypes[2] : 
 				handleLettersClick();
 				break;
-			case keyTypes[1] : 
+			case keyTypes[0] : 
 				handleNumbersClick();
 				break;
-			case keyTypes[2] : 
+			case keyTypes[1] : 
 				handleSpecialCharClick();
 				break;
 			case keyTypes[3] :

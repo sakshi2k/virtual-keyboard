@@ -27,7 +27,7 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 	}
 
 	const shuffleKeys = (clickedKeyType) => {
-		if(clickedKeyType === keyTypes[0]) {
+		if(clickedKeyType === keyTypes[2]) {
 			let letterKeysList = getAlphabetKeys();
 			let nonLetterKeysList = getNonAlphabetKeys();
 			shuffleArray(letterKeysList);
@@ -64,19 +64,19 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 	}
 
 	const getAlphabetKeys = () => {
-		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[0]);;
+		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[2]);;
 	}
 
 	const getNonAlphabetKeys = () => {
-		return renderedKeysList.filter(eachKey => eachKey.type !== keyTypes[0]);
+		return renderedKeysList.filter(eachKey => eachKey.type !== keyTypes[2]);
 	}
 
 	const getNumericKeys = () => {
-		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[1]);;
+		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[0]);;
 	}
 
 	const getSpecialCharKeys = () => {
-		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[2]);
+		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[1]);
 	}
 
 	const getSpecialKeys = () => {
