@@ -1,7 +1,7 @@
 # Virtual Keyboard
 
 ### Link to Deployed Application:
-https://623cac762b3e9b1124e54204--bejewelled-sunflower-2de751.netlify.app/
+https://virtual-keyboard-light.netlify.app/
 
 ## About the Project
 This is a minimalistic virtual keyboard application built using React.js with Bootstrap 4 (for styling).
