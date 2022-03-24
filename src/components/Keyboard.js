@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { KeyItem } from "./KeyItem";
 import { keyTypes } from "./utilities/KeyBoardInterface.ts";
 import { Container, Row, Col } from "react-bootstrap";
@@ -7,7 +7,15 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 	const [capsOn, toggleCapsLock] = useState(false);
 	const [shiftOn, toggleShift] = useState(false);
 	const [renderedKeysList, setRenderedKeysList] = useState(keysList)
-	
+
+  const getAlphabetKeys = useCallback(() => {
+		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[2]);;
+	}, [renderedKeysList]);
+
+	const getNonAlphabetKeys = useCallback(() => {
+		return renderedKeysList.filter(eachKey => eachKey.type !== keyTypes[2]);
+	}, [renderedKeysList]);
+
 	useEffect(() => {
 		let letterKeysList = getAlphabetKeys();
 		let nonLetterKeysList = getNonAlphabetKeys();
@@ -16,7 +24,7 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 			else letterKeysList[idx].name =  letterKey.name.toLowerCase();
 		});
 		setRenderedKeysList([...letterKeysList, ...nonLetterKeysList]);
-	},[capsOn, shiftOn]);
+	},[capsOn, shiftOn, getAlphabetKeys, getNonAlphabetKeys]);
 
 	// Durstenfeld shuffle
 	function shuffleArray(array) {
@@ -53,6 +61,7 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 				handleAddCharacter('\n')
 				break;
 			case 'clear all' :
+			default:
 				clearAll(true)
 				break;
 		}
@@ -61,14 +70,6 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 	const handleAddCharacter = (char) => {
 		typeCharacter(char);
 		if(shiftOn)	toggleShift(false);
-	}
-
-	const getAlphabetKeys = () => {
-		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[2]);;
-	}
-
-	const getNonAlphabetKeys = () => {
-		return renderedKeysList.filter(eachKey => eachKey.type !== keyTypes[2]);
 	}
 
 	const getNumericKeys = () => {
@@ -87,44 +88,44 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 		<Container>
 			<Row>
 				<Col xs={6}>
-					{getAlphabetKeys().map((keyItem, index) => 
-						<KeyItem 
-							key={index} 
-							keyName={keyItem.name} 
-							keyType={keyItem.type} 
+					{getAlphabetKeys().map((keyItem, index) =>
+						<KeyItem
+							key={index}
+							keyName={keyItem.name}
+							keyType={keyItem.type}
 							addCharacter={handleAddCharacter}
 							handleSpecialKeyClick={handleSpecialKeyClick}
 							shuffleLetters={shuffleKeys}
 						/>)}
 				</Col>
 				 <Col xs={3}>
-					{getNumericKeys().map((keyItem, index) => 
-						<KeyItem 
-							key={index} 
-							keyName={keyItem.name} 
-							keyType={keyItem.type} 
+					{getNumericKeys().map((keyItem, index) =>
+						<KeyItem
+							key={index}
+							keyName={keyItem.name}
+							keyType={keyItem.type}
 							addCharacter={handleAddCharacter}
 							handleSpecialKeyClick={handleSpecialKeyClick}
 							shuffleLetters={shuffleKeys}
 						/>)}
 				</Col>
 				 <Col xs={3}>
-					{getSpecialCharKeys().map((keyItem, index) => 
-						<KeyItem 
-							key={index} 
-							keyName={keyItem.name} 
-							keyType={keyItem.type} 
+					{getSpecialCharKeys().map((keyItem, index) =>
+						<KeyItem
+							key={index}
+							keyName={keyItem.name}
+							keyType={keyItem.type}
 							addCharacter={handleAddCharacter}
 							handleSpecialKeyClick={handleSpecialKeyClick}
 							shuffleLetters={shuffleKeys}
 						/>)}
 				</Col>
 				 <Col xs={12}>
-					{getSpecialKeys().map((keyItem, index) => 
-						<KeyItem 
-							key={index} 
-							keyName={keyItem.name} 
-							keyType={keyItem.type} 
+					{getSpecialKeys().map((keyItem, index) =>
+						<KeyItem
+							key={index}
+							keyName={keyItem.name}
+							keyType={keyItem.type}
 							addCharacter={handleAddCharacter}
 							handleSpecialKeyClick={handleSpecialKeyClick}
 							shuffleLetters={shuffleKeys}
