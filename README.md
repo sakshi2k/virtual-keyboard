@@ -11,10 +11,10 @@ Project's purpose : SDE assesment at Commerce IQ.
 
 ```
 1. Clone the repo
-2. cd commerceiq-task-frontend
+2. cd virtual-keyboard
 3. npm install
-4. npm run serve
-5. Open the project on localhost:8080
+4. npm run start
+5. Open the project on localhost:3000
 ```
 
 ## Problem Statement of the Application
