@@ -52,26 +52,25 @@ const Keyboard = ({ keysList, typeCharacter, clearAll}) => {
 	}
 
 	const handleSpecialKeyClick = (keyName) => {
-		// keyEntered(true);
 		switch(keyName) {
-				case 'caps' :
-						toggleCapsLock(!capsOn);
-						break;
-				case 'shift' :
-						toggleCapsLock(!capsOn);
-						break;
-				case 'delete' :
-						clearAll(false);
-						break;
-				case 'space' :
-						emitKeyLetter(' ')
-						break;
-				case 'enter' :
-						handleAddCharacter('\n')
-						break;
-				case 'clearAll' :
-						clearAll(true)
-						break;
+			case 'caps' :
+					toggleCapsLock(!capsOn);
+					break;
+			case 'shift' :
+					toggleCapsLock(!capsOn);
+					break;
+			case 'delete' :
+					clearAll(false);
+					break;
+			case 'space' :
+					handleAddCharacter(' ')
+					break;
+			case 'enter' :
+					handleAddCharacter('\n')
+					break;
+			case 'clearAll' :
+					clearAll(true)
+					break;
 		}
 	}
 
@@ -84,12 +83,12 @@ const Keyboard = ({ keysList, typeCharacter, clearAll}) => {
 		<div className="keyboard-style">
 			{renderedKeysList.map((keyItem, index) => 
 				<KeyItem 
-						key={index} 
-						keyName={keyItem.name} 
-						keyType={keyItem.type} 
-						addCharacter={handleAddCharacter}
-						handleSpecialKeyClick={handleSpecialKeyClick}
-						shuffleLetters={shuffleLetters}
+					key={index} 
+					keyName={keyItem.name} 
+					keyType={keyItem.type} 
+					addCharacter={handleAddCharacter}
+					handleSpecialKeyClick={handleSpecialKeyClick}
+					shuffleLetters={shuffleLetters}
 				/>)}
 		</div>
 	);

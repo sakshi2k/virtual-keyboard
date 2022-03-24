@@ -20,20 +20,15 @@ class App extends React.Component {
     this.setState(prevState=> ({
       typedWord: prevState.typedWord + newKey
     }))
-    console.log(this.state.typedWord)
   }
   
   clearAll(flag) {
-    if(!flag) this.setState({typedWord: this.state.typedWord.slice(0,-1)})
-    else this.setState({typedWord: ""})
+    flag ? this.setState({typedWord: this.state.typedWord.slice(0,-1)}) : this.setState({typedWord: ""});
   }
 
   getTypedWord(){
-    if(this.state.typedWord.length){
-      return this.state.typedWord+`_`;
-      // return this.state.typedWord +~{'\n'}+`_`;
-    }
-    else return this.state.staticText;
+    return this.state.typedWord.length ?
+      this.state.typedWord + `_` : this.state.staticText;
   }
   
   render() {
