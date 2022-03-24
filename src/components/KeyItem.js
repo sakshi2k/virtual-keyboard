@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { keyTypes } from "./utilities/KeyBoardInterface.ts";
 
 const KeyItem = ({keyName, keyType, index, addCharacter, handleSpecialKeyClick, shuffleLetters}) => {
-    const [specialKeySelected, handleSpecialKeySelected] = useState('');
+    // const [specialKeySelected, handleSpecialKeySelected] = useState('');
 
     function addLetter(){
         addCharacter(keyName);
