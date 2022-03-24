@@ -47,9 +47,8 @@ Durstenfeld shuffle, an optimized version of Fisher-Yates jhn
 
 #### More insights on the code :
 - Modular code with reusable components.
-    > each key is a seperate component
-    > keyboard is itself a seperate component for better encapsulation of functionalities.
-    > 
+    - each key is a seperate component
+    - keyboard is itself a seperate component for better encapsulation of functionalities.
 - Fixed layout for each key character type[alphabets, numbers, special characters, special keys(space, delete, enter, shift and caps lock)].
 - Each layout is configurable.
 - Additional "Clear All" button to reset complete text.
