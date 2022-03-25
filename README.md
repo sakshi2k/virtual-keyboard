@@ -37,13 +37,33 @@ Example → qwerty (before user clicked any key) → e (user pressed e) →  reu
 7. Ensure keys like delete, shift, caps lock works as expected.
 
 
+## Main functionalities (solution)
+
+1. Facilitates a virtual keyboard with keys :
+    - alphabets (a-o)
+    - numbers (1-5)
+    - special characters ()
+    - special keys (space, delete, enter, shift and caps lock)
+    - additional key (clear all)
+2. Fixed layouyt for the keyboard
+3. When a user clicks on an alphabet
+    - the alphabet is printed as text
+    - the alphabets shuffle in any random order
+4. When a user clicks on any number, special character or special keys, no shuffling happens.
+5. Special keys function as expected in a common keyboard:
+    - Caps Lock
+    - Shift
+    - Space
+    - Delete (deletes text from the end - backwards)
+    - Clear all (deletes all typed text)
+
 ## Technology Stack
 
 - React.js v17.0.2
 - React-Bootstrap v2.2.1"(for styling)
 
 #### Shuffling algorithm used :
-Durstenfeld shuffle, an optimized version of Fisher-Yates jhn
+<ins>Durstenfeld shuffle</ins>, an optimized version of Fisher-Yates jhn
 
 #### More insights on the code :
 - Modular code with reusable components.
@@ -64,3 +84,6 @@ Durstenfeld shuffle, an optimized version of Fisher-Yates jhn
 - use of "KeysProperties" for maintain validation of the key's object data throughout the application. Refer : src/components/utilities/KeyBoardInterface.ts
 - additional helper functionalities like:   
     - copy text to clipboard.
+
+##### Bug(s) to be fixed:
+- Enter key does not work as expected and instead only leaves a space.
