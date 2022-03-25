@@ -18,10 +18,6 @@
   margin-top: 20pt;
 }
 
-.keyboard-div {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 90%)
-}
-
 .space-bar {
   width: 90%;
 }
@@ -29,6 +25,10 @@
 h2 {
   color: white;
 }
+
+/* .keyboard-div {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 90%)
+} */
 
 .btn-drop {
   border-radius: 10px;
