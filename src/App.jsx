@@ -33,9 +33,9 @@ class App extends React.Component {
   
   render() {
     return (
-    <div className="App">
+    <div className="app">
       <h2>{this.getTypedWord()}</h2>
-      <div className="demoPage">
+      <div className="demo-page">
           <Keyboard 
             keysList={keysLists} 
             typeCharacter={this.typeCharacter} 
