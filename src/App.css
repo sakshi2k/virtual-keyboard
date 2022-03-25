@@ -1,9 +1,7 @@
 .app {
   text-align: center;
   background-color: rgba(0,165,187,255);
-  /* padding: 15.8% 0; */
-  padding-top: 10%;
-  padding-bottom: 18%;
+  padding: 15.8% 0;
 }
 
 .demo-page {
