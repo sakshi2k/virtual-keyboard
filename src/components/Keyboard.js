@@ -8,14 +8,16 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 	const [shiftOn, toggleShift] = useState(false);
 	const [renderedKeysList, setRenderedKeysList] = useState(keysList)
 
-  const getAlphabetKeys = useCallback(() => {
+	/* filters out alphabet keys */
+	const getAlphabetKeys = useCallback(() => {
 		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[2]);;
 	}, [renderedKeysList]);
-
+	
+	/* filters out non alphabet keys */
 	const getNonAlphabetKeys = useCallback(() => {
 		return renderedKeysList.filter(eachKey => eachKey.type !== keyTypes[2]);
 	}, [renderedKeysList]);
-
+	
 	useEffect(() => {
 		let letterKeysList = getAlphabetKeys();
 		let nonLetterKeysList = getNonAlphabetKeys();
@@ -24,10 +26,14 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 			else letterKeysList[idx].name =  letterKey.name.toLowerCase();
 		});
 		setRenderedKeysList([...letterKeysList, ...nonLetterKeysList]);
-    // eslint-disable-next-line
+		// eslint-disable-next-line
 	},[capsOn, shiftOn]);
-
-	// Durstenfeld shuffle
+	
+	/**
+	 * function to shuffle list of alphabet keys only
+	 * Algorithm used : Durstenfeld shuffle
+	 * @param array 
+	 */
 	function shuffleArray(array) {
 		for (let i = array.length - 1; i > 0; i--) {
 			let j = Math.floor(Math.random() * (i + 1));
@@ -35,6 +41,10 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 		}
 	}
 
+	/**
+	 * logic for shuffle keys
+	 * @param clickedKeyType 
+	 */
 	const shuffleKeys = (clickedKeyType) => {
 		if(clickedKeyType === keyTypes[2]) {
 			let letterKeysList = getAlphabetKeys();
@@ -44,6 +54,10 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 		}
 	}
 
+	/**
+	 * function to handle click on special keys
+	 * @param keyName 
+	 */
 	const handleSpecialKeyClick = (keyName) => {
 		switch(keyName) {
 			case 'caps' :
@@ -68,19 +82,26 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 		}
 	}
 
+	/**
+	 * function to handle add character operation
+	 * @param char 
+	 */
 	const handleAddCharacter = (char) => {
 		typeCharacter(char);
 		if(shiftOn)	toggleShift(false);
 	}
 
+	// getter for all number keys
 	const getNumericKeys = () => {
 		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[0]);;
 	}
-
+	
+	// getter for all special char keys
 	const getSpecialCharKeys = () => {
 		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[1]);
 	}
-
+	
+	// getter for all special keys
 	const getSpecialKeys = () => {
 		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[3]);
 	}

@@ -16,16 +16,28 @@ class App extends React.Component {
 
   }
   
+  /**
+   * functions used to add typed characters to typed sentence
+   * @param newKey 
+   */
   typeCharacter(newKey) {
     this.setState(prevState=> ({
       typedWord: prevState.typedWord + newKey
     }))
   }
   
+  /**
+   * clears all typed text
+   * @param flag 
+   */
   clearAll(flag) {
     !flag ? this.setState({typedWord: this.state.typedWord.slice(0,-1)}) : this.setState({typedWord: ""});
   }
 
+  /**
+   * getter for typed word
+   * @returns 
+   */
   getTypedWord(){
     return this.state.typedWord.length ?
       this.state.typedWord + `_` : this.state.staticText;

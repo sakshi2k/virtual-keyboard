@@ -4,23 +4,28 @@ import { keyTypes } from "./utilities/KeyBoardInterface.ts";
 const KeyItem = ({keyName, keyType, index, addCharacter, handleSpecialKeyClick, shuffleLetters}) => {
 	const [capsLockOn, setCapsLock] = useState(false);
 
+	// function to add key
 	function addLetter(){
 		addCharacter(keyName);
 	}
-
+	
+	// function to handle click on alphabets keys
 	function handleLettersClick() {
 		addLetter();
 		shuffleLetters(keyType);
 	}
-
+	
+	// function to handle click on number keys
 	function handleNumbersClick() {
 		addLetter();
 	}
-
+	
+	// function to handle click on special char keys
 	function handleSpecialCharClick() {
 		addLetter();
 	}
-
+	
+	// function to handle click on any key 
 	function handleAnyKeyClick() {
 		switch(keyType) {
 			case keyTypes[2] : 
