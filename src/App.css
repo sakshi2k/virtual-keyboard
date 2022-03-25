@@ -13,9 +13,9 @@
   margin: 0 24%;
   box-sizing: border-box;
   border-radius: 12px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 90%);
+  /* box-shadow: 0 3px 10px rgb(0 0 0 / 90%); */
   padding: 3px 0;
-  margin-top: 20pt;
+  margin-top: 10pt;
 }
 
 .space-bar {
@@ -25,10 +25,6 @@
 h2 {
   color: white;
 }
-
-/* .keyboard-div {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 90%)
-} */
 
 .btn-drop {
   border-radius: 10px;
