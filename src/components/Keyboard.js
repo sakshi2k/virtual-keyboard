@@ -6,21 +6,17 @@ import { Container, Row, Col } from "react-bootstrap";
 const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 	const [capsOn, toggleCapsLock] = useState(false);
 	const [shiftOn, toggleShift] = useState(false);
-	const [renderedKeysList, setRenderedKeysList] = useState(keysList)
+	const [renderedKeysList, setRenderedKeysList] = useState(keysList);
 
-	/* filters out alphabet keys */
-	const getAlphabetKeys = useCallback(() => {
-		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[2]);;
-	}, [renderedKeysList]);
-	
-	/* filters out non alphabet keys */
-	const getNonAlphabetKeys = useCallback(() => {
-		return renderedKeysList.filter(eachKey => eachKey.type !== keyTypes[2]);
+	const filterKeys = useCallback((type, ofType) => {
+		if(ofType)
+			return renderedKeysList.filter(eachKey => eachKey.type === type);
+		else return renderedKeysList.filter(eachKey => eachKey.type !== type);
 	}, [renderedKeysList]);
 	
 	useEffect(() => {
-		let letterKeysList = getAlphabetKeys();
-		let nonLetterKeysList = getNonAlphabetKeys();
+		let letterKeysList = filterKeys(keyTypes[2], true);
+		let nonLetterKeysList = filterKeys(keyTypes[2], false);
 		letterKeysList.forEach((letterKey, idx) => {
 			if(capsOn || shiftOn) letterKeysList[idx].name = letterKey.name.toUpperCase();
 			else letterKeysList[idx].name =  letterKey.name.toLowerCase();
@@ -46,11 +42,11 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 	 * @param clickedKeyType type of key clicked
 	 */
 	const shuffleKeys = (clickedKeyType) => {
-		if(clickedKeyType === keyTypes[2]) {
-			let letterKeysList = getAlphabetKeys();
-			let nonLetterKeysList = getNonAlphabetKeys();
-			shuffleArray(letterKeysList);
-			setRenderedKeysList([ ...letterKeysList, ...nonLetterKeysList]);
+		if(clickedKeyType !== keyTypes[3]) {
+			let firstKeysList = filterKeys(clickedKeyType, true);
+			let secondKeysList = filterKeys(clickedKeyType, false);
+			shuffleArray(firstKeysList);
+			setRenderedKeysList([ ...firstKeysList, ...secondKeysList]);
 		}
 	}
 
@@ -91,26 +87,11 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 		if(shiftOn)	toggleShift(false);
 	}
 
-	// getter for all number keys
-	const getNumericKeys = () => {
-		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[0]);;
-	}
-	
-	// getter for all special char keys
-	const getSpecialCharKeys = () => {
-		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[1]);
-	}
-	
-	// getter for all special keys
-	const getSpecialKeys = () => {
-		return renderedKeysList.filter(eachKey => eachKey.type === keyTypes[3]);
-	}
-
 	return (
 		<Container>
 			<Row>
 				<Col xs={6}>
-					{getAlphabetKeys().map((keyItem, index) =>
+					{filterKeys(keyTypes[2], true).map((keyItem, index) =>
 						<KeyItem
 							key={index}
 							keyName={keyItem.name}
@@ -120,8 +101,8 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 							shuffleLetters={shuffleKeys}
 						/>)}
 				</Col>
-				 <Col xs={3}>
-					{getNumericKeys().map((keyItem, index) =>
+				<Col xs={3}>
+					{filterKeys(keyTypes[0], true).map((keyItem, index) =>
 						<KeyItem
 							key={index}
 							keyName={keyItem.name}
@@ -131,8 +112,8 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 							shuffleLetters={shuffleKeys}
 						/>)}
 				</Col>
-				 <Col xs={3}>
-					{getSpecialCharKeys().map((keyItem, index) =>
+				<Col xs={3}>
+				 	{filterKeys(keyTypes[1], true).map((keyItem, index) =>
 						<KeyItem
 							key={index}
 							keyName={keyItem.name}
@@ -142,8 +123,8 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 							shuffleLetters={shuffleKeys}
 						/>)}
 				</Col>
-				 <Col xs={12}>
-					{getSpecialKeys().map((keyItem, index) =>
+				<Col xs={12}>
+				 {filterKeys(keyTypes[3], true).map((keyItem, index) =>
 						<KeyItem
 							key={index}
 							keyName={keyItem.name}

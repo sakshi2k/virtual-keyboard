@@ -17,11 +17,13 @@ const KeyItem = ({keyName, keyType, index, addCharacter, handleSpecialKeyClick, 
 	
 	// function to handle click on number keys
 	function handleNumbersClick() {
+		shuffleLetters(keyType);
 		addLetter();
 	}
 	
 	// function to handle click on special char keys
 	function handleSpecialCharClick() {
+		shuffleLetters(keyType);
 		addLetter();
 	}
 	
