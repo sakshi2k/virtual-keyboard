@@ -18,7 +18,7 @@ class App extends React.Component {
   
   /**
    * functions used to add typed characters to typed sentence
-   * @param newKey 
+   * @param newKey new key to be added
    */
   typeCharacter(newKey) {
     this.setState(prevState=> ({
@@ -27,8 +27,8 @@ class App extends React.Component {
   }
   
   /**
-   * clears all typed text
-   * @param flag 
+   * function called for delete and clear all functionality
+   * @param flag whether should clear all text or just one character from the end
    */
   clearAll(flag) {
     !flag ? this.setState({typedWord: this.state.typedWord.slice(0,-1)}) : this.setState({typedWord: ""});
@@ -36,7 +36,7 @@ class App extends React.Component {
 
   /**
    * getter for typed word
-   * @returns 
+   * @returns typed word
    */
   getTypedWord(){
     return this.state.typedWord.length ?

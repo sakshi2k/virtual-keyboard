@@ -43,7 +43,7 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 
 	/**
 	 * logic for shuffle keys
-	 * @param clickedKeyType 
+	 * @param clickedKeyType type of key clicked
 	 */
 	const shuffleKeys = (clickedKeyType) => {
 		if(clickedKeyType === keyTypes[2]) {
@@ -56,7 +56,7 @@ const Keyboard = ({ keysList, typeCharacter, clearAll }) => {
 
 	/**
 	 * function to handle click on special keys
-	 * @param keyName 
+	 * @param keyName name of the key pressed
 	 */
 	const handleSpecialKeyClick = (keyName) => {
 		switch(keyName) {
