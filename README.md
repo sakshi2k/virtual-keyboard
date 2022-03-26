@@ -49,7 +49,7 @@ Example → qwerty (before user clicked any key) → e (user pressed e) →  reu
 3. When a user clicks on an alphabet
     - the alphabet is printed as text
     - the alphabets shuffle in any random order
-4. When a user clicks on any number, special character or special keys, no shuffling happens.
+4. When a user clicks on any special(functional) keys, no shuffling happens.
 5. Special keys function as expected in a common keyboard:
     - Caps Lock
     - Shift
