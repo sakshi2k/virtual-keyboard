@@ -38,7 +38,7 @@ body {
 textarea {
   width: 40%;
   min-height: 25%;
-  font-size: large;
+  font-size: 25px;
   background-color: #00a5bb;
   border: none;
   height: max-content;
