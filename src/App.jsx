@@ -46,7 +46,7 @@ class App extends React.Component {
   render() {
     return (
     <div className="app">
-      <h2>{this.getTypedWord()}</h2>
+      <textarea value={this.getTypedWord()}></textarea>
       <div className="demo-page">
           <Keyboard 
             keysList={keysLists} 
