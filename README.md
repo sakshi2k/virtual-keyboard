@@ -85,5 +85,3 @@ Example → qwerty (before user clicked any key) → e (user pressed e) →  reu
 - additional helper functionalities like:   
     - copy text to clipboard.
 
-##### Bug(s) to be fixed:
-- Enter key does not work as expected and instead only leaves a space.
