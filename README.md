@@ -5,7 +5,7 @@ https://virtual-keyboard-light.netlify.app/
 
 ## About the Project
 This is a minimalistic virtual keyboard application built using React.js with Bootstrap 4 (for styling).
-Project's purpose : SDE assesment at Commerce IQ.
+Project's purpose : SDE assessment at Commerce IQ.
 
 ## Project setup
 
@@ -45,7 +45,7 @@ Example → qwerty (before user clicked any key) → e (user pressed e) →  reu
     - special characters ()
     - special keys (space, delete, enter, shift and caps lock)
     - additional key (clear all)
-2. Fixed layouyt for the keyboard
+2. Fixed layout for the keyboard
 3. When a user clicks on an alphabet
     - the alphabet is printed as text
     - the alphabets shuffle in any random order
