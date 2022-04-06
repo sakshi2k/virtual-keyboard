@@ -42,7 +42,7 @@ Example → qwerty (before user clicked any key) → e (user pressed e) →  reu
 1. Facilitates a virtual keyboard with keys :
     - alphabets (a-o)
     - numbers (1-5)
-    - special characters ()
+    - special characters (!, #, @, ?, $)
     - special keys (space, delete, enter, shift and caps lock)
     - additional key (clear all)
 2. Fixed layout for the keyboard
