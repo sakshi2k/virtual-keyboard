@@ -46,9 +46,9 @@ Example → qwerty (before user clicked any key) → e (user pressed e) →  reu
     - special keys (space, delete, enter, shift and caps lock)
     - additional key (clear all)
 2. Fixed layout for the keyboard
-3. When a user clicks on an alphabet
-    - the alphabet is printed as text
-    - the alphabets shuffle in any random order
+3. When a user clicks on a key of type alphabets/numbers/special characters
+    - the key value is printed as text
+    - the keys shuffle in any random order (maintainin the aspect of layout)
 4. When a user clicks on any special(functional) keys, no shuffling happens.
 5. Special keys function as expected in a common keyboard:
     - Caps Lock
